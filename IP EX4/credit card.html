@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<center>
+    <h1>CHECK CREDIT CARD NUMBER</h1>
+</head>
+<body class="font">
+<PRE class="font" > ENTER CREDIT CARD NUMBER:</PRE>
+<input type="text" id="myNumber" >
+<p class="font"></p>
+<button onclick="myFunction()">check</button>
+<p class="font" id="display"></p>
+<p class="font" id="demo"></p>
+<script>
+var down = document.getElementById('display');
+function myFunction() {
+  var x = document.getElementById("myNumber").value;
+  document.getElementById("demo").innerHTML = x;
+  down.innerHTML =
+	/^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/.test(x);
+	}
+</script>
+</center>
+</body>
+</html>

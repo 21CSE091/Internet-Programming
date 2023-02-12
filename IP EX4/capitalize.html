@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<center>
+<head>
+<h2>CAPITALIZE FIRST CHARACTER OF A STRING</h2>
+<body>
+<center>
+<p>ORIGINAL TEXT:</p>
+<p>velammal</p>
+<p>FIRST LETTER CAPITALIZED:</p>
+<p>SWAPPED TEXT:</p>
+<p id="demo"></p>
+<script>
+function myFunction(s) {
+
+const remaining = s.substring(1)
+const firstLetter = s.substring(0,1);
+
+const firstLetterCap = firstLetter.toUpperCase()
+return firstLetterCap+remaining;
+}
+document.getElementById("demo").innerHTML =
+myFunction("velammal");
+</script>
+</center>
+</body>
+</html>
