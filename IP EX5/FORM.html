@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form validation</title>
+    <style>
+        p{
+            display: inline-block;
+            font-weight: bold;
+            color: red;
+            padding-left: 20px;
+            text-align: right;
+        }
+        label{
+            width: 150px;
+            font-weight: bold;
+            display: inline-block;
+        }
+        *{
+            text-align: center;
+        }
+        .select {
+            overflow-y: auto;
+         }
+        .select1{
+            display: inline-block;
+            width: 180px;
+        }
+        button{
+             background-color:DodgerBlue;
+             color:Black;
+             padding:15px 15px;
+             font-size: 18px;
+        }
+    </style>
+</head>
+<body style="border: 4px solid black">
+<h1 style="text-align: center"; >FORM VALIDATION USING JAVASCRIPT</h1>
+    <form action="">
+        <label for="name">Name</label>
+        <input type="text" placeholder="Enter Name" id="name"\><p id="ptag1">Name is required</p><br><br>
+        <label for="age">Age</label>
+        <input type="text" placeholder="Enter Age " id="age"><p id="ptag2">Age is required</p><br><br>
+        <label for="birth">Birth Date</label>
+        <input type="text" placeholder="YYYY-MM-DD" id="birth"><p id="ptag3">DOB is required</p><br><br>
+        <label for="email">Email</label>
+        <input type="text" placeholder="Enter Email" id="email" style="width: 220px;"><p id="ptag4">Email is required</p><br><br>
+        <label >Continent</label>
+        <select id="continent" class="select1">
+            <option value="slelct" class="select1">Select</option>
+            <option value="Asia" class="select1">Asia</option>
+            <option value="Africa" class="select1">Africa</option>
+            <option value="North America" class="select1">North America</option>
+            <option value="South America" class="select1">South America</option>
+            <option value="Europe" class="select1">Europe</option>
+            <option value="Australia" class="select1">Australia</option>
+            <option value=" Antarctica" class="select1"> Antarctica</option>
+          </select><p id="ptag5">Continent is required</p><br>
+          <label id="cool" class="you">Are You Cool</label>
+          <input type="radio" id="yes" name="my" >Yes <input type="radio" id="no" name="my">No <p id="ptag6">Are you cool? is required</p><br><br>
+          <label class="you">What 2 colors do you like?</label>
+          <select id="color" class="select" size="4" multiple="multiple">
+            <option value="red" class="select">Red</option>
+            <option value="blue" class="select">Blue</option>
+            <option value="green" class="select">Green</option>
+            <option value="yellow" class="select">Yellow</option>
+            <option value="black" class="select">Black</option>
+            <option value="purple" class="select1">Purple</option>
+          </select><p id="ptag7">Colors is required</p><br><br>
+          <label class="you">What do you like?</label>
+          <input type="checkbox" name="fuel" class="fuel" onclick="checkcheckbox()">Codelgniter
+          <input type="checkbox" name="fuel" class="fuel" onclick="checkcheckbox()">Fuel
+          <input type="checkbox"  name="fuel" class="fuel" onclick="checkcheckbox()">Kohana
+          <input type="checkbox" name="fuel" class="fuel" onclick="checkcheckbox()">Laravel
+          <input type="checkbox"  name="fuel" class="fuel" onclick="checkcheckbox()">Zend
+          <p id="ptag8">What do you like? is required</p><br><br>
+          <button type="submit">Submit</button>
+<br>
+<br>
+    </form>
+</body>
+<script>
+    document.getElementById("name").addEventListener("input", checkname);
+    document.getElementById("age").addEventListener("input", checkage);
+    document.getElementById("birth").addEventListener("input", checkbirth);
+    document.getElementById("email").addEventListener("input", checkemail);
+    document.getElementById("continent").addEventListener("input", checkselect);
+    document.getElementById("yes").addEventListener("input", yes);
+    document.getElementById("no").addEventListener("input", yes);
+    document.getElementById("color").addEventListener("input", checkcolor);
+    document.getElementById("color").addEventListener("input", checkcolor);
+    function checkcheckbox()
+    {
+        document.getElementById("ptag8").style.color="green";
+        document.getElementById("ptag8").innerHTML="&#x2713";
+    }
+    function checkcolor(){
+        var e = document.getElementById("color");
+    var value = e.value;
+    if(value.match(/\w/g))
+        {
+            document.getElementById("ptag7").style.color="green";
+            document.getElementById("ptag7").innerHTML="&#x2713";
+        }
+    }
+    function yes(){
+    if(document.getElementById("yes").checked)
+    {
+        document.getElementById("ptag6").style.color="green";
+        document.getElementById("ptag6").innerHTML="&#x2713";
+    }
+    else if(document.getElementById("no").checked)
+    {
+        document.getElementById("ptag6").style.color="green";
+        document.getElementById("ptag6").innerHTML="&#x2713";
+    }
+
+}    function checkselect(){
+        var continent= document.getElementById("continent");
+        if(continent.selectedIndex !=0)
+        {
+            document.getElementById("ptag5").style.color="green";
+            document.getElementById("ptag5").innerHTML="&#x2713";
+        }
+    }
+    function checkname(){
+    var getname=document.getElementById("name").value;
+    if(getname.match(/(\s+\b[A-Z][a-z])/g) && getname.match(/\b([A-Z][a-z])/))
+    {
+        document.getElementById("ptag1").style.color="green";
+        document.getElementById("ptag1").innerHTML="&#x2713";
+    }
+    else{
+        document.getElementById("ptag1").style.color="red";
+        document.getElementById("ptag1").innerHTML="&#10060";
+    }
+    }
+    function checkage(){
+    var age=document.getElementById("age").value;
+    if(age.match(/\W/g))
+    {
+        var age=parseInt(age);
+    }
+    if(age>=1 && age<=120)
+    {
+        document.getElementById("ptag2").style.color="green";
+        document.getElementById("ptag2").innerHTML="&#x2713";
+    }
+    else{
+        document.getElementById("ptag2").style.color="red";
+        document.getElementById("ptag2").innerHTML="&#10060";
+    }
+    }
+    function checkbirth(){
+        var birth=document.getElementById("birth").value;
+        if(birth.match(/^(\d{4})\/(0?[1-9]|1[0-2])\/(0?[1-9]|[1-2]\d|3[0-1])$/g) && birth.match(/\W/g))
+        {
+            document.getElementById("ptag3").style.color="green";
+            document.getElementById("ptag3").innerHTML="&#x2713";
+        }
+        else{
+        document.getElementById("ptag3").style.color="red";
+        document.getElementById("ptag3").innerHTML="&#10060";
+    }
+    }
+    function checkemail(){
+        var email=document.getElementById("email").value;
+        if(email.match(/^[a-zA-Z0-9_-]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/g ))
+        {
+            document.getElementById("ptag4").style.color="green";
+            document.getElementById("ptag4").innerHTML="&#x2713";
+        }
+        else{
+        document.getElementById("ptag4").style.color="red";
+        document.getElementById("ptag4").innerHTML="&#10060";
+    }
+}
+
+
+</script>
+</html>
