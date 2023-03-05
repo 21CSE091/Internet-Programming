@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>calculate the number of words in of vowels in a string</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+$("#button1").click(function(){ var word=$("#strcheck").val();
+const count = word.match(/[aeiou]/gi).length;
+$("#t1").val(count);
+});
+});
+</script>
+</head>
+<body style="text-align:center;">
+<h1 style="color:red;"> JQUERY</h1>
+<h3>How to calculate the number of words in of vowels in a string </h3>
+<textarea id="strcheck"></textarea>
+<br>
+ 
+<br>
+Total no.of vowels: <input id="t1" type="text">
+<br><br>
+<button type="button" id="button1">Click</button>
+</body>
+</html>
