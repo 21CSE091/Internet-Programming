@@ -1,0 +1,11 @@
+<html>
+    <head>
+        <title>html page</title>
+    </head>
+    <body>
+        <form action="http://localhost:8080/servlet1/ex8servlet1" method="post">
+            Name:<input type="text" name="username">
+            <input type="submit" value="go">
+        </form>
+    </body>
+</html>
