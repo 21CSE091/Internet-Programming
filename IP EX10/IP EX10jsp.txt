@@ -1,0 +1,40 @@
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@page import="ipex10.emp"%>
+<%@page import="java.util.*"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Jstl</title>
+    </head>
+    <body>
+        <%
+            emp st=new emp("Jimmy Kimmel",60000,"2023-11-13");
+            emp st1=new emp("Jennifer Aniston",70000,"2021-02-11");
+            emp st2=new emp("Jason Bateman",40000,"2019-01-14");
+            ArrayList<emp> obj=new ArrayList<emp>();
+            obj.add(st);
+            obj.add(st1);
+            obj.add(st2);
+pageContext.setAttribute("obj", obj);
+        %>
+        <table border="2px"><tr><th>Name</th><th>date</th><th>salary</th></tr>
+        <c:forEach items="${pageScope.obj}" var="i">
+                <tr> <td>${i.getName()}</td>
+                    <td>${i.getdate()}</td>
+                    <td>${i.getsalary()}</td>
+                </tr>
+        </c:forEach>  
+        </table>
+    </table><br>
+    <h3>highlighting and displaying the employee whose salary is greater than 60000</h3>
+        <c:forEach items="${pageScope.obj}" var="i">
+       <c:choose>
+           <c:when test="${i.getsalary()>60000}">
+               <mark>${i.getName()}...${i.getdate()}...${i.getsalary()}</mark>
+           </c:when>
+       </c:choose>
+                
+                </c:forEach> 
+    </body>
+</html>
