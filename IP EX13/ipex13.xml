@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="newstylesheet.xsl"?>
+<books>
+<book>
+    <title>Pride and Prejudice</title>
+    <author>Jane Austen</author>
+    <genre>Romance</genre>
+    <price>15</price>
+</book>
+<book>
+     <title>The summer I turned pretty</title>
+    <author>Jenny Han</author>
+    <genre>Comedy</genre>
+    <price>22</price>
+</book>
+<book>
+    <title>Harry Potter and the Philosopher's Stone</title>
+    <author>J.K.Rowling</author>
+    <genre>Fantasy/Adventure</genre>
+    <price>50</price>
+</book>
+<book>
+    <title>The girl on the train</title>
+    <author>Paula Hawkins</author>
+    <genre>Mystery</genre>
+    <price>20</price>
+</book>
+<book>
+    <title>The Shining</title>
+    <author>Stephen King</author>
+    <genre>Horror</genre>
+    <price>45</price>
+</book>
+</books>
